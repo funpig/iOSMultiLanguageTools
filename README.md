@@ -23,3 +23,17 @@ This tool could help you do internationalization automate
 4. Done！
 
 现在这个小工具暂时只支持OC，如果想支持其他语言，稍加改动就行了。
+
+### Know issue
+
+1. 暂不支持查找一行多个中文字符串
+   ```
+   NSArray *operators = @[@"手动档", @"自动档"];
+   ```
+   
+   how to fix: 换成多行
+   
+   ```
+   NSArray *operators = @[@"手动档", 
+   						   @"自动档"];
+   ```

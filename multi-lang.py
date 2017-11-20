@@ -25,6 +25,7 @@ ignoreRex = [r"NSLocalizedString",
               r"uploadUserStartAction",
               r"NSLog",
               r"imageNamed",
+              r"//translate ignore",
               r"//",
               r"DEBUG_Log",
               r"DDLogDebug",
@@ -54,7 +55,7 @@ willProcessFils = {}  # 实际需要处理的文件，有文件已经处理过�
 needProcessFiles = []
 
 hasConflict = False  # 有没有key冲突
-onlyShowProcessResult = False  # 如果你只想查看翻译效果，设置为 True
+onlyShowProcessResult = False  # 如果你只想查看查找、翻译效果，设置为 True
 
 
 # 已翻译好的文字，从.strings读取
