@@ -26,7 +26,9 @@ ignoreRex = [r"NSLocalizedString",
               r"NSLog",
               r"imageNamed",
               r"//",
-              r"DEBUG_Log"
+              r"DEBUG_Log",
+              r"DDLogDebug",
+              r"V4.0-"
               ]
 
 ignoreDir = [r"Pods",
@@ -71,7 +73,7 @@ def gettranslatedwords(path):
                     line_utf8 = line.decode('utf8')
                     searchobj = pattern.search(line_utf8)
                     if searchobj:
-                        array = line_utf8.split('=')
+                        array = line_utf8.split(' = ')
                         key = array[1].strip()[1:-2]
                         value = array[0].strip()[1:-1]
                         translatedWords[key] = value
