@@ -41,7 +41,7 @@ ignoreDirSuffixs = [
                     r".framework"
                     ]
 
-translatedRex = ur'=\s*\"[\u4E00-\u9FA5]+\";'  # 用来解析.strings文件
+translatedRex = ur'=\s*\"[^\"]*[\u4E00-\u9FA5]+[^\"]*?\";'  # 用来解析.strings文件
 
 translateString = "RRUUNSLocalizedString(@\"%s\", %s)"
 
@@ -61,13 +61,13 @@ def gettranslatedwords(path):
     if os.path.isfile(filepath):
         try:
             f = open(filepath)
+            pattern = re.compile(translatedRex)
             while 1:
                 lines = f.readlines(100000)
                 if not lines:
                     break
                 for line in lines:
                     # "visitor" = "游客";
-                    pattern = re.compile(translatedRex)
                     line_utf8 = line.decode('utf8')
                     searchobj = pattern.search(line_utf8)
                     if searchobj:
